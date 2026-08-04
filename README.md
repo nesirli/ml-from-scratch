@@ -124,7 +124,7 @@ This structure keeps the codebase consistent and easy to review before an interv
 Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/ml-from-scratch.git
+git clone https://github.com/nesirli/ml-from-scratch.git
 cd ml-from-scratch
 ```
 
