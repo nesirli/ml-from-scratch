@@ -1,5 +1,7 @@
 import numpy as np
 
+from algorithms.utils.functions import sigmoid
+
 class LogisticRegression:
 	def __init__(self, n_iter: int = 3000, lr: float = 0.01):
 		self.n_iter = n_iter
@@ -10,9 +12,6 @@ class LogisticRegression:
 	def initialize_parameters(self, feature_count: int):
 		self.parameters['W'] = np.random.randn(feature_count) * 0.01
 		self.parameters['b'] = 0.0
-
-	def sigmoid(self, x: np.ndarray) -> np.ndarray:
-		return np.where(x >= 0, 1 / (1 + np.exp(-x)), np.exp(x) / (1 + np.exp(x)))
 
 
 	def compute_cost_and_gradients(self, X_train: np.ndarray, y_train: np.ndarray) -> tuple:
@@ -42,7 +41,7 @@ class LogisticRegression:
 				print(f'Epoch: {epoch} | Cost: {cost:.3f}')
 
 	def predict_proba(self, X_test: np.ndarray) -> np.ndarray:
-		return self.sigmoid(np.dot(X_test, self.parameters['W']) + self.parameters['b'])
+		return sigmoid(np.dot(X_test, self.parameters['W']) + self.parameters['b'])
 
 	def predict(self, X_test: np.ndarray) -> np.ndarray:
 		preds_proba = self.predict_proba(X_test)
