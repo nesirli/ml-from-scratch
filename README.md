@@ -30,15 +30,15 @@ ml-from-scratch/
 ├── pyproject.toml
 ├── uv.lock
 ├── algorithms/
-│   ├── 1_linear_regression.py
-│   ├── 2_logistic_regression.py
-│   ├── 3_knn.py
-│   ├── 4_naive_bayes.py
-│   ├── 5_decision_tree.py
-│   ├── 6_random_forest.py
-│   ├── 7_svm.py
-│   ├── 8_gradient_boosting.py
-│   ├── 9_kmeans.py
+│   ├── 01_linear_regression.py
+│   ├── 02_logistic_regression.py
+│   ├── 03_knn.py
+│   ├── 04_naive_bayes.py
+│   ├── 05_decision_tree.py
+│   ├── 06_random_forest.py
+│   ├── 07_svm.py
+│   ├── 08_gradient_boosting.py
+│   ├── 09_kmeans.py
 │   ├── 10_pca.py
 │   ├── 11_gaussian_mixture.py
 │   ├── 12_hierarchical_clustering.py
@@ -96,7 +96,7 @@ source .venv/bin/activate
 Each algorithm file is runnable. For example, to run the Linear Regression demo:
 
 ```bash
-uv run python algorithms/1_linear_regression.py
+uv run python algorithms/01_linear_regression.py
 ```
 
 ## Technology Choices
