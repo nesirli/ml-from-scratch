@@ -1,2 +1,0 @@
-from .algorithm import KNeighborsClassifier as KNeighborsClassifier
-from .algorithm import KNeighborsRegressor as KNeighborsRegressor

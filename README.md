@@ -22,39 +22,6 @@ This repository is for anyone who:
 - Is preparing for machine learning interviews
 - Prefers learning by building rather than only reading
 
-## Recommended Learning Approach
-
-With roughly three months before an interview, use a hybrid strategy. Go deep on the algorithms that appear most often in interviews. Cover the rest with clean implementations and strong conceptual notes.
-
-### Deep Focus Algorithms
-
-These algorithms should be implemented fully from scratch, with hand-derived gradients, thorough tests, and detailed interview notes.
-
-1. Linear Regression
-2. Logistic Regression
-3. Decision Tree
-4. Random Forest
-5. Gradient Boosting
-6. K-Means
-7. PCA
-8. MLP with Backpropagation
-9. CNN
-10. Transformer
-
-### Breadth Coverage Algorithms
-
-These algorithms should be implemented cleanly and understood conceptually. Optimization fine-tuning and exhaustive edge cases are less critical here.
-
-- K-Nearest Neighbors
-- Naive Bayes
-- Support Vector Machine
-- Hierarchical Clustering
-- Gaussian Mixture Model
-- RNN and LSTM
-- Word2Vec
-- Attention Variants
-- Transformer Language Model
-
 ## Repository Structure
 
 ```
@@ -62,56 +29,40 @@ ml-from-scratch/
 ├── README.md
 ├── pyproject.toml
 ├── uv.lock
-├── .github/
-│   └── workflows/
-│       └── test.yml
-├── src/
-│   ├── supervised/
-│   │   ├── linear_regression/
-│   │   ├── logistic_regression/
-│   │   ├── knn/
-│   │   ├── naive_bayes/
-│   │   ├── decision_tree/
-│   │   ├── random_forest/
-│   │   ├── svm/
-│   │   └── gradient_boosting/
-│   ├── unsupervised/
-│   │   ├── kmeans/
-│   │   ├── pca/
-│   │   ├── gaussian_mixture/
-│   │   └── hierarchical_clustering/
-│   ├── deep_learning/
-│   │   ├── mlp/
-│   │   ├── cnn/
-│   │   ├── rnn/
-│   │   ├── lstm/
-│   │   ├── word2vec/
-│   │   ├── attention/
-│   │   └── transformer/
-│   └── nlp/
-│       ├── tokenizer/
-│       ├── ngram_lm/
-│       ├── word_embeddings/
-│       └── transformer_lm/
-├── tests/
-├── notebooks/
+├── algorithms/
+│   ├── 1_linear_regression.py
+│   ├── 2_logistic_regression.py
+│   ├── 3_knn.py
+│   ├── 4_naive_bayes.py
+│   ├── 5_decision_tree.py
+│   ├── 6_random_forest.py
+│   ├── 7_svm.py
+│   ├── 8_gradient_boosting.py
+│   ├── 9_kmeans.py
+│   ├── 10_pca.py
+│   ├── 11_gaussian_mixture.py
+│   ├── 12_hierarchical_clustering.py
+│   ├── 13_mlp.py
+│   ├── 14_cnn.py
+│   ├── 15_rnn.py
+│   ├── 16_lstm.py
+│   ├── 17_tokenization.py
+│   ├── 18_ngram_lm.py
+│   ├── 19_word2vec.py
+│   ├── 20_attention.py
+│   ├── 21_transformer.py
+│   └── 22_transformer_lm.py
 └── docs/
-    └── interview_notes/
+    ├── implementations.md
+    ├── metrics.md
+    ├── model-classification.md
+    └── supervised/
+        ├── knn.md
+        ├── linear_regression.md
+        └── logistic_regression.md
 ```
 
-Each algorithm directory follows the same template described below.
-
-## Per-Algorithm Template
-
-Every algorithm directory contains the following files:
-
-- `algorithm.py`: Pure NumPy implementation
-- `demo.py`: A runnable example with a toy or real dataset
-- `test_algorithm.py`: Pytest tests for correctness and edge cases
-- `pytorch_check.py`: Optional comparison against PyTorch for neural network models
-- `README.md`: Mathematical notes, complexity analysis, and common interview questions
-
-This structure keeps the codebase consistent and easy to review before an interview.
+Every algorithm lives in a single numbered file. Each file contains the pure NumPy implementation at the top and a runnable demo guarded by `if __name__ == "__main__":`.
 
 ## Prerequisites
 
@@ -140,37 +91,13 @@ Activate the virtual environment:
 source .venv/bin/activate
 ```
 
-Run the tests:
-
-```bash
-uv run pytest
-```
-
 ## Running a Demo
 
-Each algorithm has its own demo. For example, to run the Linear Regression demo:
+Each algorithm file is runnable. For example, to run the Linear Regression demo:
 
 ```bash
-uv run python src/supervised/linear_regression/demo.py
+uv run python algorithms/1_linear_regression.py
 ```
-
-## Running Tests
-
-Run all tests:
-
-```bash
-uv run pytest
-```
-
-Run tests for a specific algorithm:
-
-```bash
-uv run pytest tests/supervised/test_linear_regression.py
-```
-
-## Continuous Integration
-
-GitHub Actions runs the full test suite on every pull request and push to the main branch. The workflow uses uv for fast dependency installation.
 
 ## Technology Choices
 
@@ -180,58 +107,6 @@ GitHub Actions runs the full test suite on every pull request and push to the ma
 - **pytest**: Used for unit tests and correctness checks.
 - **uv**: Used for fast dependency locking and environment management.
 - **GitHub Actions**: Used for continuous integration.
-
-## Learning Roadmap
-
-The algorithms are ordered from basic to advanced. It is recommended to follow this order, but you can skip topics you already know well.
-
-### Phase 1: Supervised Foundations
-
-1. Linear Regression (ordinary least squares and gradient descent)
-2. Logistic Regression (binary and multiclass)
-3. K-Nearest Neighbors
-4. Naive Bayes
-5. Decision Tree
-6. Random Forest
-7. Support Vector Machine
-8. Gradient Boosting
-
-### Phase 2: Unsupervised Learning
-
-9. K-Means Clustering
-10. Principal Component Analysis
-11. Gaussian Mixture Model
-12. Hierarchical Clustering
-
-### Phase 3: Deep Learning
-
-13. Multi-Layer Perceptron (backpropagation from scratch)
-14. Convolutional Neural Network
-15. Recurrent Neural Network
-16. Long Short-Term Memory Network
-
-### Phase 4: NLP and Sequence Modeling
-
-17. Tokenization
-18. N-Gram Language Model
-19. Word2Vec
-20. Attention Mechanism
-21. Transformer
-22. Transformer Language Model
-
-## Suggested Weekly Schedule
-
-Assuming three months of preparation, a possible schedule is:
-
-- **Weeks 1 to 2**: Linear Regression, Logistic Regression, KNN, Naive Bayes
-- **Weeks 3 to 4**: Decision Tree, Random Forest, Gradient Boosting
-- **Weeks 5 to 6**: K-Means, PCA, SVM
-- **Weeks 7 to 8**: MLP and Backpropagation
-- **Weeks 9 to 10**: CNN, RNN, LSTM
-- **Weeks 11 to 12**: Word2Vec, Attention, Transformer
-- **Final Week**: Review interview notes, rerun tests, and practice explaining algorithms out loud
-
-This schedule assumes roughly 5 to 10 hours of focused work per week.
 
 ## How to Use This Repository for Interview Prep
 
