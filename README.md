@@ -53,13 +53,12 @@ ml-from-scratch/
 │   ├── 21_transformer.py
 │   └── 22_transformer_lm.py
 └── docs/
+    ├── 01_linear_regression.md
+    ├── 02_logistic_regression.md
+    ├── 03_knn.md
     ├── implementations.md
     ├── metrics.md
-    ├── model-classification.md
-    └── supervised/
-        ├── knn.md
-        ├── linear_regression.md
-        └── logistic_regression.md
+    └── model-classification.md
 ```
 
 Every algorithm lives in a single numbered file. Each file contains the pure NumPy implementation at the top and a runnable demo guarded by `if __name__ == "__main__":`.
